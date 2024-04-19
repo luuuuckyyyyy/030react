@@ -1,29 +1,47 @@
+import { Route, Routes, NavLink} from "react-router-dom";
+import React from "react";
+import "./App.css";
 
-import './App.css';
+const Profile = () => {
+  return <h2>Это страница с профилем</h2>;
+};
+const Friends = () => {
+  return <h2>Это страница с друзьями</h2>;
+};
+const Shop = () => {
+  return <h2>Это магазин</h2>;
+};
 
 function App() {
   return (
-    <div className="container">
-    <div className="col-3">
-      <div className="nav flex-column nav-pills">
-        <a href ="main" className='nav-link active' > Главаня</a>
-        <a href ="profile" className='nav-link'> Профиль</a>
-        <a href ="friend" className='nav-link'> Друзья</a>
-        <a href ="shop" className='nav-link'> Магазин</a>
-
-
-
-      </div>
-      <div className="col-9">
-
+    <div className="container mt-5">
+      <div className="row">
+        <div className="col-3">
+          <div className="nav flex-column nav-pills">
+          <NavLink to="/" className="nav-link">
+              Главная
+            </NavLink>
+            <NavLink to="profile" className="nav-link">
+              Профиль
+            </NavLink>
+            <NavLink to="friends" className="nav-link">
+              Друзья
+            </NavLink>
+            <NavLink to="shop" className="nav-link">
+              Магазин
+            </NavLink>
+          </div>
+        </div>
+        <div className="col-9">
+          <Routes>
+            <Route path="/" element={<h2>Вы в личном кабинете. Выбор в меню слева</h2>} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/friends" element={<Friends />} />
+            <Route path="/shop" element={<Shop />} />
+          </Routes>
+        </div>
       </div>
     </div>
-    
-    </div>
-
-
-
-
   );
 }
 
