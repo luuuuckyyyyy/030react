@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { getUser, getUsers } from './components/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <App users = {{key_getUser: getUser, key_getUsers: getUsers}}/>
     </React.StrictMode>
   </BrowserRouter>
 );

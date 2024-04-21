@@ -7,7 +7,8 @@ import { Friends } from "./components/friends";
 
 
 
-function App() {
+
+function App(props) {
   return (
     <div className="container mt-5">
       <div className="row">
@@ -30,8 +31,8 @@ function App() {
         <div className="col-9">
           <Routes>
             <Route path="/" element={<h2>Вы в личном кабинете. Выбор в меню слева</h2>} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/friends" element={<Friends />} />
+            <Route path="/profile" element={<Profile function = {props.users.key_getUser}/>} />
+            <Route path="/friends" element={<Friends function = {props.users.key_getUsers} />} />
             <Route path="/shop" element={<Shop />} />
           </Routes>
         </div>
